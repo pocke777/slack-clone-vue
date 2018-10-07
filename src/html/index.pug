@@ -1,0 +1,31 @@
+extends /layout/_application
+
+block content
+  .client-container
+    .client-channels
+      .title Trunk
+
+      .subtitle
+        | Channels
+        i.icon.ion-md-add-circle-outline
+      li.items
+        ul.item #room_cat
+        ul.item #room_dog
+    .client-messages
+      header.header
+        .title #room_cat
+      .body
+        - for (var i = 0; i < 100; i++)
+          .message-item
+            img.icon(src="images/pickrusu.jpg")
+            .body
+              .info
+                .name scottish-fold
+                .time 11:10 AM
+              - var text = 'これはサンプルテキストですこれはサンプルテキストです\nこれはサンプルテキストです\nこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストです'
+              .text #{text}
+      footer.footer
+        .message-footer
+          div.input-wrapper
+            textarea.input-area(placeholder="Message #root_cat")
+            i.send.icon.ion-ios-send
