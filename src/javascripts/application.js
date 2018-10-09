@@ -1,1 +1,3 @@
-console.log("Application")
+new Vue({
+  el: "#app"
+})
