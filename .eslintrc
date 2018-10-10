@@ -6,7 +6,7 @@
   },
   "extends": ["eslint:recommended"],
   "rules": {
-    "strict": [2, "function"],
+    "strict": 0,
     "no-undef": 0,
     "no-console": 1,
     "arrow-parens": [2, "always"],
