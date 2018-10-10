@@ -15,15 +15,15 @@ block content
       header.header
         .title #room_cat
       .body
-        - for (var i = 0; i < 100; i++)
-          .message-item
-            img.icon(src="images/pickrusu.jpg")
+          .message-item(v-for="message in messages")
+            img.icon(:src="message.icon")
             .body
               .info
-                .name scottish-fold
-                .time 11:10 AM
-              - var text = 'これはサンプルテキストですこれはサンプルテキストです\nこれはサンプルテキストです\nこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストです'
-              .text #{text}
+                .name {{ message.name }}
+                .time {{ message.time }}
+              .text {{ message.text }}
+
+
       footer.footer
         .message-footer
           div.input-wrapper
