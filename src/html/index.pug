@@ -15,13 +15,7 @@ block content
       header.header
         .title #room_cat
       .body
-          .message-item(v-for="message in messages")
-            img.icon(:src="message.icon")
-            .body
-              .info
-                .name {{ message.name }}
-                .time {{ message.time }}
-              .text {{ message.text }}
+          message(v-for="message in messages" :message="message")
 
 
       footer.footer

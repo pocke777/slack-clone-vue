@@ -1,3 +1,5 @@
+import Message from 'components/Message'
+
 const messages = [
   {
     name: 'scottish-fold',
@@ -21,6 +23,9 @@ const messages = [
 
 new Vue({
   el: "#app",
+  components: {
+    Message
+  },
   data: {
     messages: messages,
     inputText: ""
