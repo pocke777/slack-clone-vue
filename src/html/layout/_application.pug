@@ -10,8 +10,9 @@ html(lang="ja" dir="ltr")
     link(href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet")
     link(href='/assets/application.css' rel="stylesheet" media="all" type="text/css")
   body
-    main.main
+    main.main#app
       block content
 
     block scripts
+      script(src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js")
       script(src="/assets/application.js")

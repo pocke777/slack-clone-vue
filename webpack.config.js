@@ -1,3 +1,4 @@
+const { VueLoaderPlugin } = require('vue-loader')
 const path = require('path')
 const CompressionPlugin = require("compression-webpack-plugin")
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -19,7 +20,7 @@ module.exports = {
     rules: [
       {
         enforce: "pre",
-        test:  /\.(js)$/,
+        test:  /\.(js|vue)$/,
         exclude: /node_modules/,
         loader: "eslint-loader",
       },
@@ -37,6 +38,10 @@ module.exports = {
         }
       },
       {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
         test: /\.pug$/,
         loader: 'pug-plain-loader'
       }
@@ -50,14 +55,18 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.json', '*'],
+    extensions: ['.js', '.json', '*', '.vue'],
     modules: [
       'node_modules',
       path.join(__dirname, SRC, 'javascripts'),
       path.join(__dirname, SRC)
     ],
+    alias: {
+      vue: 'vue/dist/vue.common.js'
+    }
   },
   plugins: [
+    new VueLoaderPlugin(),
     new CompressionPlugin({
       test: /\.js/
     }),

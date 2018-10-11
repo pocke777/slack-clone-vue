@@ -15,17 +15,11 @@ block content
       header.header
         .title #room_cat
       .body
-        - for (var i = 0; i < 100; i++)
-          .message-item
-            img.icon(src="images/pickrusu.jpg")
-            .body
-              .info
-                .name scottish-fold
-                .time 11:10 AM
-              - var text = 'これはサンプルテキストですこれはサンプルテキストです\nこれはサンプルテキストです\nこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストです'
-              .text #{text}
+          message(v-for="message in messages" :message="message")
+
+
       footer.footer
         .message-footer
           div.input-wrapper
-            textarea.input-area(placeholder="Message #root_cat")
-            i.send.icon.ion-ios-send
+            textarea.input-area(placeholder="Message #root_cat" v-model="inputText")
+            i.send.icon.ion-ios-send(v-on:click="send")
